@@ -49,3 +49,7 @@ PUT - http://localhost:3000/api/id/6073b49a5893e105ec417c96
     NOTA: El PUT funciona para cualquier campo individual si se desea enviarlo asi.
 
 DELETE - http://localhost:3000/api/id/607a38d365968f7c2c836a43
+
+8. Incluye Dockerfile para construir nuestra imagen Docker. Posicionarnos al nivel del archivo Dockerfile y ejecutar el comando:
+
+    $ docker build -t crud-rest-nodejs-mongodb-docker-2023 .
