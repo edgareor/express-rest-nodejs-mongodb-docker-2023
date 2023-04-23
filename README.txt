@@ -53,3 +53,7 @@ DELETE - http://localhost:3000/api/id/607a38d365968f7c2c836a43
 8. Incluye Dockerfile para construir nuestra imagen Docker. Posicionarnos al nivel del archivo Dockerfile y ejecutar el comando:
 
     $ docker build -t crud-rest-nodejs-mongodb-docker-2023 .
+    
+ Una vez construida la imagen levantar el contenedor con el comando:
+ 
+    $ docker run -p 3000:3000 crud-rest-nodejs-mongodb-docker-2023
