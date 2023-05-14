@@ -2,9 +2,9 @@ Es un servicio REST con NodeJS y MongoDB.
 
 Para ocuparlo seguir los siguientes pasos:
 
-1. Verificar que la BD en MongoDB Atlas este operativa.
+1. Verificar que la BD en MongoDB Atlas con credenciales GMAIL este operativa.
 
-    URL: https://account.mongodb.com/account/login?nds=true&_ga=2.100066142.1722820833.1680208711-647890857.1612417880&_gac=1.47624533.1680275670.Cj0KCQjwiZqhBhCJARIsACHHEH88Y2cbt0rOapntKTTJn3gsO1wwbu_olErukN22lgNJZo4RlSUR8_YaAv-OEALw_wcB
+    URL: https://account.mongodb.com/account/login
 
 2. Realizar un clone del proyecto desde GitHub.
 
@@ -14,7 +14,7 @@ Para ocuparlo seguir los siguientes pasos:
 
 4. Ubicar las credenciales y otras variables de la url de mongo, se encuentran en mongoDB Atlas, en Cluster, Connect your Application, sustituir en el archivo .env:
 
-    URL_MONGODB=mongodb+srv://{username}:{password}@{cluster}.mongodb.net/{collection}?retryWrites=true&w=majority
+    URL_MONGODB=mongodb+srv://{username}:{password}@{cluster}.mongodb.net/{database}?retryWrites=true&w=majority
 
 5. Ejecutar el archivo main.js:
 

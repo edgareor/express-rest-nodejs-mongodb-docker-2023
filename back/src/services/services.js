@@ -12,7 +12,7 @@ router.get('/hola-mundo',
             res.status(200).json({ message: `Hello World! ${req.method}` })			// ${req.method} extrae el tipo de metodo utilizado.
         } catch (err) {
             console.log(err);
-            res.status(500).json({ message: error.message });
+            res.status(500).json({ message: err.message });
         }
     });
 
@@ -24,7 +24,7 @@ router.get('/fechas/actual',
             res.status(200).json({ "message": date });
         } catch (err) {
             console.log(err);
-            res.status(500).json({ message: error.message });
+            res.status(500).json({ message: err.message });
         }
     });
 
@@ -35,7 +35,7 @@ router.get('/param/:param',
             var params = req.params.param						// Extraer path param ingresado. Nomenclatura: req.params.<nombre-parametros>
             res.status(200).send({ "message": params });
         } catch (err) {
-            res.status(500).json({ message: error.message });
+            res.status(500).json({ message: err.message });
         }
     });
 
@@ -52,7 +52,7 @@ router.get('/query',
             res.status(200).json(response);
         } catch (err) {
             console.log(err);
-            res.status(500).json({ message: error.message });
+            res.status(500).json({ message: err.message });
         }
     });
 
@@ -64,7 +64,7 @@ router.get('/all',
             res.status(200).json(responseAll);
         } catch (err) {
             console.log(err);
-            res.status(500).json({ message: error.message });
+            res.status(500).json({ message: err.message });
         }
     })
 
@@ -77,7 +77,7 @@ router.get('/id/:id',
             res.status(200).json(responseId);
         } catch (err) {
             console.log(err);
-            res.status(500).json({ message: error.message });
+            res.status(500).json({ message: err.message });
         }
     })
 
@@ -92,7 +92,7 @@ router.post('/personas',
             res.status(201).json(responseSave);
         } catch (err) {
             console.log(err);
-            res.status(500).json({ message: error.message });
+            res.status(500).json({ message: err.message });
         }
     })
 
@@ -106,7 +106,7 @@ router.put('/id/:id',
             res.status(200).json(responseUpdate);
         } catch (err) {
             console.log(err);
-            res.status(500).json({ message: error.message });
+            res.status(500).json({ message: err.message });
         }
     })
 
@@ -119,7 +119,7 @@ router.delete('/id/:id',
             res.status(200).json({ message: 'Usuario: ' + id + ', eliminado correctamente', responseDelete: responseDelete });
         } catch (err) {
             console.log(err);
-            res.status(500).json({ message: error.message });
+            res.status(500).json({ message: err.message });
         }
     })
 
