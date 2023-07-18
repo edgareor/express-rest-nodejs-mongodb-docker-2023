@@ -1,4 +1,4 @@
-Es un servicio REST con NodeJS y MongoDB. 
+Es un servicio REST con Express, NodeJS y MongoDB. 
 
 Para ocuparlo seguir los siguientes pasos:
 
@@ -12,8 +12,7 @@ Para ocuparlo seguir los siguientes pasos:
 
     $ npm i 
 
-4. Ubicar las credenciales y otras variables de la url de mongo, la url se encuentra en mongoDB Atlas, en Cluster, Connect your Application, 
-Drivers, y la password en Database Access, Edit User. sustituir en el archivo .env:
+4. Ubicar las credenciales y otras variables de la url de mongo, la url se encuentra en mongoDB Atlas, en Cluster, Connect your Application, Drivers. La password se ubica en Database Access, Edit User. Sustituir estos datos en el archivo .env:
 
     URL_MONGODB=mongodb+srv://{username}:{password}@{cluster}.mongodb.net/{database}?retryWrites=true&w=majority
 
