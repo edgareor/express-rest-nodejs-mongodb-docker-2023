@@ -8,15 +8,16 @@ Para ocuparlo seguir los siguientes pasos:
 
 2. Realizar un clone del proyecto desde GitHub.
 
-3. Instalar los modulos necesarios:
+3. Acceder al directorio del proyecto y carpeta /back, Instalar los modulos necesarios con el comando:
 
     $ npm i 
 
-4. Ubicar las credenciales y otras variables de la url de mongo, se encuentran en mongoDB Atlas, en Cluster, Connect your Application, sustituir en el archivo .env:
+4. Ubicar las credenciales y otras variables de la url de mongo, la url se encuentra en mongoDB Atlas, en Cluster, Connect your Application, 
+Drivers, y la password en Database Access, Edit User. sustituir en el archivo .env:
 
     URL_MONGODB=mongodb+srv://{username}:{password}@{cluster}.mongodb.net/{database}?retryWrites=true&w=majority
 
-5. Ejecutar el archivo main.js:
+5. Acceder al directorio /src y ejecutar el archivo main.js:
 
     node main.js    or      nodemon.js
 
@@ -26,7 +27,7 @@ El log del levantamiento del server arroja un token jwt con 1 hora de expiracion
 
 7. Utilizar los servicios configurados en el puerto 3000:
 
-GET - http://localhost:3000/api/fechas/actual
+GET - http://localhost:3000/api/fechas/actual   - NO Tiene seguridad para verificar funcionamiento de la API.
 GET - http://localhost:3000/api/hola-mundo
 GET - http://localhost:3000/api/param/cualquier%20informacion
 GET - http://localhost:3000/api/query?query1=valor1&query2=valor2
