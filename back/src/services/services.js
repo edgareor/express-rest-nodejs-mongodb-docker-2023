@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const { verifyToken } = require('./verifyToken');
+const { body, check, validationResult } = require('express-validator');
 const router = Router();
 let mongoose = require('mongoose');
 
@@ -82,9 +83,23 @@ router.get('/id/:id',
     })
 
 router.post('/personas',
-    [verifyToken],
+    [
+        verifyToken,
+        body('nombre').custom(async (nombre) => {
+            console.log(typeof nombre);
+            if (typeof nombre != 'string') {
+                throw new Error('El nombre debe ser una cadena');
+            }
+        })
+    ],
     async (req, res) => {
         try {
+            //Validacion
+            const errors = validationResult(req);				// Debemos obtener los resultados de la validacion y procesarlos.
+            if (!errors.isEmpty()) {					        // Si el objeto errors contiene algun dato, retornar el error.
+                return res.status(400).json(errors);
+            }
+
             let body = req.body;
             body._id = new mongoose.Types.ObjectId();
             let persona = new Persona(body);
@@ -97,9 +112,18 @@ router.post('/personas',
     })
 
 router.put('/id/:id',
-    [verifyToken],
+    [
+        verifyToken,
+        check('nombre', 'El nombre debe ser minimo 2 caracteres y maximo 20').isLength({ min: 2, max: 20 })
+    ],
     async (req, res) => {
         try {
+            //Validacion
+            const errors = validationResult(req);				// Debemos obtener los resultados de la validacion y procesarlos.
+            if (!errors.isEmpty()) {					        // Si el objeto errors contiene algun dato, retornar el error.
+                return res.status(400).json(errors);
+            }
+
             let id = req.params.id;
             let body = req.body;
             let responseUpdate = await Persona.findByIdAndUpdate(id, body, { new: true });

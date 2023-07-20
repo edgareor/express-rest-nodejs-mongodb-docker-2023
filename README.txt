@@ -1,4 +1,4 @@
-Es un servicio REST con Express, NodeJS y MongoDB. 
+Es un servicio REST con Express, NodeJS y MongoDB. Tiene validacion a nivel de Schema mongoose y validacion adicional con express-validator en metodos POST y PUT. 
 
 Para ocuparlo seguir los siguientes pasos:
 
