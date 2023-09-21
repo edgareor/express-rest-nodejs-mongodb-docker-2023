@@ -26,6 +26,8 @@ El log del levantamiento del server arroja un token jwt con 1 hora de expiracion
 
 7. Utilizar los servicios configurados en el puerto 3000:
 
+Documentacion Swagger: http://localhost:3000/open-api
+
 GET - http://localhost:3000/api/timenow   - NO Tiene seguridad para verificar funcionamiento de la API.
 GET - http://localhost:3000/api/hola-mundo
 GET - http://localhost:3000/api/param/cualquier%20informacion

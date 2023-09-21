@@ -129,17 +129,17 @@ router.get('/id/:id',
  *     parameters:
  *       - name: nombre
  *         description: Nombre persona.
- *         in: formData
+ *         in: body
  *         required: true
  *         type: string
  *       - name: age
  *         description: Edad persona.
- *         in: formData
+ *         in: body
  *         required: true
  *         type: number
  *       - name: estado
  *         description: Habilitado.
- *         in: formData
+ *         in: body
  *         required: true
  *         type: boolean
  *     responses:
@@ -193,17 +193,17 @@ router.post('/personas',
  *         type: string
  *       - name: nombre
  *         description: Nombre persona.
- *         in: formData
+ *         in: body
  *         required: true
  *         type: string
  *       - name: age
  *         description: Edad persona.
- *         in: formData
+ *         in: body
  *         required: true
  *         type: number
  *       - name: estado
  *         description: Habilitado.
- *         in: formData
+ *         in: body
  *         required: true
  *         type: boolean
  *     responses:
