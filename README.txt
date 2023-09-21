@@ -1,4 +1,4 @@
-Es un servicio REST con Express, NodeJS y MongoDB. Tiene validacion a nivel de Schema mongoose y validacion adicional con express-validator en metodos POST y PUT. 
+Es un servicio REST con Express, NodeJS y MongoDB. Tiene validacion a nivel de Schema mongoose, validacion adicional con express-validator en metodos POST y PUT y documentacion Swagger. 
 
 Para ocuparlo seguir los siguientes pasos:
 
@@ -26,7 +26,7 @@ El log del levantamiento del server arroja un token jwt con 1 hora de expiracion
 
 7. Utilizar los servicios configurados en el puerto 3000:
 
-GET - http://localhost:3000/api/fechas/actual   - NO Tiene seguridad para verificar funcionamiento de la API.
+GET - http://localhost:3000/api/timenow   - NO Tiene seguridad para verificar funcionamiento de la API.
 GET - http://localhost:3000/api/hola-mundo
 GET - http://localhost:3000/api/param/cualquier%20informacion
 GET - http://localhost:3000/api/query?query1=valor1&query2=valor2

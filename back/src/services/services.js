@@ -6,23 +6,57 @@ let mongoose = require('mongoose');
 
 let { Persona } = require('../models/entity');
 
-router.get('/hola-mundo',
-    [verifyToken],
+/**
+ * @swagger
+ * components:
+ *   securitySchemes:
+ *     TokenAuth:
+ *       type: apiKey
+ *       in: header
+ *       name: Authorization
+ */
+  
+/**
+ * @swagger
+ * /timenow:
+ *   get:
+ *     summary: Retorna fecha actual
+ *     description: Retorna fecha actual
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: Fecha Actual
+ */
+router.get('/timenow',
+    [],
     async (req, res) => {
         try {
-            res.status(200).json({ message: `Hello World! ${req.method}` })			// ${req.method} extrae el tipo de metodo utilizado.
+            var date = new Date();
+            res.status(200).json({ "message": date });
         } catch (err) {
             console.log(err);
             res.status(500).json({ message: err.message });
         }
     });
 
-router.get('/fechas/actual',
+/**
+ * @swagger
+ * /hola-mundo:
+ *   get:
+ *     summary: Retorna Hola Mundo
+ *     description: Retorna hola mundo
+ *     security:
+ *       - TokenAuth: []
+ *     responses:
+ *       200:
+ *         description: Hola Mundo
+ */
+router.get('/hola-mundo',
     [verifyToken],
     async (req, res) => {
         try {
-            var date = new Date();
-            res.status(200).json({ "message": date });
+            res.status(200).json({ message: `Hello World! ${req.method}` })			// ${req.method} extrae el tipo de metodo utilizado.
         } catch (err) {
             console.log(err);
             res.status(500).json({ message: err.message });
@@ -82,6 +116,36 @@ router.get('/id/:id',
         }
     })
 
+/**
+ * @swagger
+ * /personas:
+ *   post:
+ *     summary: Guardar Persona
+ *     description: Guardar Persona
+ *     security:
+ *       - TokenAuth: []
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: nombre
+ *         description: Nombre persona.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: age
+ *         description: Edad persona.
+ *         in: formData
+ *         required: true
+ *         type: number
+ *       - name: estado
+ *         description: Habilitado.
+ *         in: formData
+ *         required: true
+ *         type: boolean
+ *     responses:
+ *       201:
+ *         description: Created
+ */
 router.post('/personas',
     [
         verifyToken,
@@ -111,6 +175,41 @@ router.post('/personas',
         }
     })
 
+/**
+ * @swagger
+ * /id/{id}:
+ *   put:
+ *     summary: Actualizar Persona
+ *     description: Actualizar Persona
+ *     security:
+ *       - TokenAuth: []
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: id
+ *         description: ID de la persona.
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: nombre
+ *         description: Nombre persona.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: age
+ *         description: Edad persona.
+ *         in: formData
+ *         required: true
+ *         type: number
+ *       - name: estado
+ *         description: Habilitado.
+ *         in: formData
+ *         required: true
+ *         type: boolean
+ *     responses:
+ *       200:
+ *         description: Updated
+ */
 router.put('/id/:id',
     [
         verifyToken,
@@ -134,6 +233,26 @@ router.put('/id/:id',
         }
     })
 
+/**
+ * @swagger
+ * /id/{id}:
+ *   delete:
+ *     summary: Eliminar Persona
+ *     description: Eliminar Persona
+ *     security:
+ *       - TokenAuth: []
+ *     parameters:
+ *       - name: id
+ *         description: ID de la persona.
+ *         in: path
+ *         required: true
+ *         type: string
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: Deleted
+ */
 router.delete('/id/:id',
     [verifyToken],
     async (req, res) => {
